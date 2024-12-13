@@ -1,4 +1,5 @@
 <img align=right width="168" src="docs/gouef_logo.png">
+
 # github-lib-template
 Github template for new libraries
 
