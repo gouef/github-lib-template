@@ -17,4 +17,6 @@ Github template for new libraries
 
 This is template repository for new libraries
 
+## Important
 
+Edit go.mod and rename to your package module
