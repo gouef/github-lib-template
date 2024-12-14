@@ -17,6 +17,6 @@ on:
 
 jobs:
   call-release:
-    uses: gouef/github-lib-template/.github/workflows/shared_release.yml
+    uses: gouef/github-lib-template/.github/workflows/shared_release.yml@main
     with:
       branch: ${{ github.ref_name }}
