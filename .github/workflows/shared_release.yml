@@ -76,7 +76,20 @@ jobs:
             PREV_TAG=$(git rev-list --max-parents=0 HEAD)
           fi
           
-          COMMITS="<ul>"
+          COMMITS=""
+          
+          CURRENT_TAG_SHORT=$(echo "$CURRENT_TAG" | cut -c 1-7)
+          PREV_TAG_SHORT=$(echo "$PREV_TAG" | cut -c 1-7)
+          
+          COMPARE_URL="https://github.com/${{ github.repository }}/compare/$PREV_TAG...$CURRENT_TAG"
+        
+          DIFF_TEXT="<a href=\"$COMPARE_URL\">Diff: $PREV_TAG...$CURRENT_TAG</a>"
+          
+          COMMITS+="<h2>Changes</h2>"
+          
+          COMMITS+="<p><a href=\"$COMPARE_URL\">Diff: $PREV_TAG...$CURRENT_TAG</a></p>"
+          
+          COMMITS+="<ul>"
           declare -A FIXUPS
 
           while read -r commit_hash; do
