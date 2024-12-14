@@ -1,6 +1,12 @@
 name: Create Release
 
 on:
+  workflow_call: # Trigger pro reusable workflow
+    inputs:
+      branch:
+        required: false
+        type: string
+        default: "main"
   push:
     tags:
       - 'v*'
