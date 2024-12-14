@@ -37,6 +37,7 @@ jobs:
             if [[ ! $COMMIT =~ $REGEX ]]; then
               echo "Invalid commit message: $COMMIT"
               echo "Commit messages must match: '[TYPE] Description' (e.g., '[Add] New feature')."
+              echo "[TYPE] allowed is Add, Fix, Update, Remove, Refactor, Docs, Test, Improve"
               exit 1
             fi
           done
