@@ -56,10 +56,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.txt
-          slug:  ${{ github.repository }}
           name: ${{ github.workflow }}
           fail_ci_if_error: true
-          use_oidc: true
           verbose: true
