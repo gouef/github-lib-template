@@ -31,10 +31,17 @@ jobs:
       - name: Run tests
         run: go test ./tests -coverprofile=coverage.txt
 
+      - name: Check coverage file
+        run: cat coverage.txt
+
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.txt
+          flags: unittests
           slug:  ${{ github.repository }}
+          name: ${{ github.workflow }}
+          fail_ci_if_error: true
