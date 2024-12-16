@@ -24,12 +24,14 @@ jobs:
 
       - name: Set up Go
         uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.4
 
       - name: Install dependencies
-        run: go mod download
+        run: go mod tidy
 
       - name: Run tests
-        run: go test ./... -coverprofile=coverage.txt
+        run: go test -covermode=set ./... -coverprofile=coverage.txt
 
       - name: Check coverage file
         run: cat coverage.txt
@@ -42,7 +44,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.txt
+          files: coverage.txt
           flags: unittests
           slug:  ${{ github.repository }}
           name: ${{ github.workflow }}
