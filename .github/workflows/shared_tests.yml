@@ -41,6 +41,9 @@ jobs:
       - name: Debug Codecov Token
         run: |
           echo "Codecov Token: ${{ secrets.CODECOV_TOKEN }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Debug Codecov Upload
         run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f coverage.txt -r github.com/${{ github.repository }}
         env:
