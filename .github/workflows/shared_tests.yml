@@ -38,6 +38,13 @@ jobs:
       - name: Debug info
         run: |
           echo "Repo: ${{ github.repository }}"
+      - name: Test if CODECOV_TOKEN is available
+        run: |
+          if [ -z "${{ secrets.CODECOV_TOKEN }}" ]; then
+            echo "CODECOV_TOKEN is NOT set"
+          else
+            echo "CODECOV_TOKEN is available"
+          fi
       - name: Debug Codecov Token
         run: |
           echo "Codecov Token: ${{ secrets.CODECOV_TOKEN }}"
