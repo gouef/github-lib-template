@@ -16,6 +16,8 @@ on:
       - develop
       - feature/**
       - release/**
+      - test/**
+      - bugfix/**
 
 jobs:
   lint-commits:
@@ -31,7 +33,7 @@ jobs:
         run: |
           COMMITS=$(git log --pretty=format:"%s" HEAD^..HEAD 2>/dev/null || git log --pretty=format:"%s" HEAD)
 
-          REGEX="^\[(Add|Fix|Update|Remove|Refactor|Docs|Test|Improve)\] .{10,}$"
+          REGEX="^\[(Add|Fix|Update|Remove|Refactor|Docs|Test|Improve|Merge)\] .{10,}$|^Merge .* into .*$"
 
           echo "$COMMITS" | while read -r COMMIT; do
             if [[ ! $COMMIT =~ $REGEX ]]; then
