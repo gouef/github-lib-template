@@ -45,7 +45,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.txt
-          flags: unittests
           slug:  ${{ github.repository }}
           name: ${{ github.workflow }}
           fail_ci_if_error: true
