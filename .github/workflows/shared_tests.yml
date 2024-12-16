@@ -7,6 +7,10 @@ on:
         required: false
         type: string
         default: "main"
+      slug:
+        required: false
+        type: string
+        default: ${{ github.repository }}
 
 jobs:
   test:
@@ -25,7 +29,7 @@ jobs:
         run: go mod download
 
       - name: Run tests
-        run: go test -coverprofile=coverage.txt
+        run: go test ./tests -coverprofile=coverage.txt
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
@@ -33,4 +37,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: ${{ github.repository }}
+          slug:  ${{ github.repository }}
