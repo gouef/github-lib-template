@@ -11,9 +11,6 @@ on:
         required: false
         type: string
         default: ${{ github.repository }}
-    secrets:
-      GH_PAT: ${{ secrets.GH_PAT }}
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 jobs:
   test:
