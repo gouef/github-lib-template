@@ -20,3 +20,19 @@ This is template repository for new libraries
 ## Important
 
 Edit go.mod and rename to your package module
+
+## Commit rules
+Commit message should looks like
+```
+[TYPE] some message
+```
+
+### Types
+ - Add
+ - Fix
+ - Update
+ - Remove
+ - Refactor
+ - Docs
+ - Test
+ - Improve
