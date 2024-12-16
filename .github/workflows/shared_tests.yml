@@ -35,6 +35,9 @@ jobs:
 
       - name: Check coverage file
         run: cat coverage.txt
+      - name: Debug info
+        run: |
+          echo "Repo: ${{ github.repository }}"
       - name: Debug Codecov Upload
         run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f coverage.txt
 
