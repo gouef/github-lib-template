@@ -11,9 +11,6 @@ on:
         required: false
         type: string
         default: ${{ github.repository }}
-      token:
-        required: true
-        type: string
 
 jobs:
   test:
@@ -43,30 +40,30 @@ jobs:
           echo "Repo: ${{ github.repository }}"
       - name: Test if CODECOV_TOKEN is available
         run: |
-          if [ -z "${{ inputs.token }}" ]; then
+          if [ -z "${{ secrets.CODECOV_TOKEN }}" ]; then
             echo "CODECOV_TOKEN is NOT set"
           else
             echo "CODECOV_TOKEN is available"
           fi
       - name: Debug Codecov Token
         run: |
-          echo "Codecov Token: ${{ inputs.token }}"
+          echo "Codecov Token: ${{ secrets.CODECOV_TOKEN }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CODECOV_TOKEN: ${{ inputs.token }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Debug Codecov Upload
-        run: bash <(curl -s https://codecov.io/bash) -t ${{ inputs.token }} -f coverage.txt -r github.com/${{ github.repository }}
+        run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }} -f coverage.txt -r github.com/${{ github.repository }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CODECOV_TOKEN: ${{ inputs.token }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v5
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CODECOV_TOKEN: ${{ inputs.token }}
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          token: ${{ inputs.token }}
+          token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage.txt
           name: ${{ github.workflow }}
           fail_ci_if_error: true
