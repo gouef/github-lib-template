@@ -5,7 +5,7 @@ on:
       branch:
         required: false
         type: string
-        default: "main"
+        default: "${{ github.event.repository.default_branch }}"
       excludeBot:
         required: false
         type: boolean
@@ -152,7 +152,7 @@ jobs:
             echo "Žádné změny, nic k commitování."
           else
             git commit -m "[Update] Automate update contributors"
-            git push origin HEAD:main
+            git push origin HEAD:${{ github.event.repository.default_branch }}
           fi
 
       - name: Commit and push changes
@@ -162,7 +162,7 @@ jobs:
           else
             git add .
             git commit -m "[Update] Automate update contributors"
-            git push origin HEAD:main
+            git push origin HEAD:${{ github.event.repository.default_branch }}
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
