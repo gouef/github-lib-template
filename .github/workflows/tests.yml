@@ -11,11 +11,6 @@ permissions:
   id-token: write
   contents: read
 
-#jobs:
-#  test:
-#    uses: gouef/github-lib-template/.github/workflows/shared_tests.yml@main
-#    with:
-#      slug: ${{ github.repository }}
 jobs:
   test:
     name: Run tests and collect coverage
