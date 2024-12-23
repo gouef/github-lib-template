@@ -16,6 +16,8 @@ on:
         default: false
   schedule:
     - cron: '0 0 * * 1'  # Spouštět každý pondělí v 0:00
+permissions:
+  contents: write
 jobs:
   update-contributors:
     runs-on: ubuntu-latest
