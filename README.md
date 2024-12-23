@@ -8,7 +8,7 @@ Github template for new libraries
 [![Go Report Card](https://goreportcard.com/badge/github.com/gouef/github-lib-template)](https://goreportcard.com/report/github.com/gouef/github-lib-template)
 [![codecov](https://codecov.io/github/gouef/github-lib-template/branch/main/graph/badge.svg?token=YUG8EMH6Q8)](https://codecov.io/github/gouef/github-lib-template)
 
-## Vesions
+## Versions
 ![Stable Version](https://img.shields.io/github/v/release/gouef/github-lib-template?label=Stable&labelColor=green)
 ![GitHub Release](https://img.shields.io/github/v/release/gouef/github-lib-template?label=RC&include_prereleases&filter=*rc*&logoSize=diago)
 ![GitHub Release](https://img.shields.io/github/v/release/gouef/github-lib-template?label=Beta&include_prereleases&filter=*beta*&logoSize=diago)
@@ -36,3 +36,15 @@ Commit message should looks like
  - Docs
  - Test
  - Improve
+
+## Contributors
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 10px;">
+<span style="width:100px;">
+  <a href="https://github.com/JanGalek"><img src="https://raw.githubusercontent.com/gouef/github-lib-template/refs/heads/contributors-svg/.github/contributors/JanGalek.svg" alt="JanGalek" /></a>
+</span>
+<span style="width:100px;">
+  <a href="https://github.com/actions-user"><img src="https://raw.githubusercontent.com/gouef/github-lib-template/refs/heads/contributors-svg/.github/contributors/actions-user.svg" alt="actions-user" /></a>
+</span>
+</div>
+

@@ -1,9 +1,11 @@
 name: Run tests and upload coverage
 
 on:
-  pull_request:
-    types: [opened, synchronize, edited]
-  push:
+  workflow_dispatch:
+# Allow in new project
+#  pull_request:
+#    types: [opened, synchronize, edited]
+#  push:
 
 permissions:
   id-token: write
