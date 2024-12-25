@@ -19,7 +19,8 @@ This is template repository for new libraries
 
 ## Important
 
-Edit go.mod and rename to your package module
+- Edit go.mod and rename to your package module
+- Uncomment .github/workflows/tests.yml
 
 ## Commit rules
 Commit message should looks like
