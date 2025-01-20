@@ -22,21 +22,9 @@ This is template repository for new libraries
 - Edit go.mod and rename to your package module
 - Uncomment .github/workflows/tests.yml
 
-## Commit rules
-Commit message should looks like
-```
-[TYPE] some message
-```
+## Contributing
 
-### Types
- - Add
- - Fix
- - Update
- - Remove
- - Refactor
- - Docs
- - Test
- - Improve
+Read [Contributing](CONTRIBUTING.md)
 
 ## Contributors
 
