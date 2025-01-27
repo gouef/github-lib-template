@@ -1,6 +1,7 @@
 name: Post to Facebook on Release
 
 on:
+  push:
   release:
     types: [published, created, edited, releases, prereleased]
 
