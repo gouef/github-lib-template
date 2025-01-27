@@ -2,6 +2,7 @@ name: Post to Facebook on Release
 
 on:
   release:
+    types: [published, created, edited, releases, prereleased]
 
 jobs:
   post-to-facebook:
