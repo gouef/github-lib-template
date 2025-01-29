@@ -27,11 +27,11 @@ jobs:
           branch: ${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Send tweet
-        uses: ethomson/send-tweet-action@v1
-        with:
-          status: "🎉 New version of ${{ github.event.release.tag_name }} just released! 🚀\n\n${{ github.event.release.html_url }}"
-          consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
-          consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
-          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+      - name: Send tweet via Twitter API v2
+        run: |
+          curl -X POST "https://api.twitter.com/2/tweets" \
+          -H "Authorization: Bearer ${{ secrets.TWITTER_BEARER_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "text": "🚀 New version of ${{ github.event.release.tag_name }} just released! 🎉\n\n${{ github.event.release.html_url }}"
+          }'
