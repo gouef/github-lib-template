@@ -32,8 +32,8 @@ jobs:
 
       - name: Send tweet
         env:
-          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
-          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+          TWITTER_CONSUMER_API_SECRET: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
         run: |
@@ -41,16 +41,15 @@ jobs:
           import tweepy
           import os
 
-          client = tweepy.OAuth1UserHandler(
-              os.getenv("TWITTER_API_KEY"),
-              os.getenv("TWITTER_API_SECRET"),
-              os.getenv("TWITTER_ACCESS_TOKEN"),
-              os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
+          client = tweepy.Client(
+              consumer_key=os.getenv("TWITTER_CONSUMER_API_KEY"),
+              consumer_secret=os.getenv("TWITTER_CONSUMER_API_SECRET"),
+              access_token=os.getenv("TWITTER_ACCESS_TOKEN"),
+              access_token_secret=os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
           )
-          api = tweepy.API(client)
 
           tweet_text = f"🚀 New version of {os.getenv('GITHUB_REF_NAME')} just released! 🎉\n\n{os.getenv('GITHUB_SERVER_URL')}/{os.getenv('GITHUB_REPOSITORY')}/releases/latest"
 
-          response = api.update_status(tweet_text)
+          response = client.create_tweet(text=tweet_text)
           print(f"Tweet odeslán: {response}")
           EOF
