@@ -51,6 +51,6 @@ jobs:
 
           tweet_text = f"🚀 New version of {os.getenv('GITHUB_REF_NAME')} just released! 🎉\n\n{os.getenv('GITHUB_SERVER_URL')}/{os.getenv('GITHUB_REPOSITORY')}/releases/latest"
 
-          response = api.update_status(text=tweet_text)
+          response = api.update_status(tweet_text)
           print(f"Tweet odeslán: {response}")
           EOF
