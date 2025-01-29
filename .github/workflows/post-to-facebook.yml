@@ -1,0 +1,22 @@
+name: Post to Facebook on Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  post-to-facebook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Post new release to Facebook
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "message": "New version of $GITHUB_REPOSITORY $GITHUB_REF_NAME just released! 🎉\n\nLook for more details here: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}",
+              "access_token": "'"${FB_PAGE_ACCESS_TOKEN}"'"
+            }' \
+            "https://graph.facebook.com/v12.0/{PAGE_ID}/feed"
