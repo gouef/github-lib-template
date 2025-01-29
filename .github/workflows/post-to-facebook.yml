@@ -3,7 +3,7 @@ name: Post to Facebook on Release
 on:
   push:
   release:
-    types: [published, created, edited, releases, prereleased]
+    types: [published, created, edited, released, prereleased]
 
 jobs:
   post-to-facebook:
