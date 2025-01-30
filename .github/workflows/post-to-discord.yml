@@ -1,0 +1,31 @@
+name: Notify Discord on New Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  notify-discord:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ github.ref_name }}
+          AUTHOR: ${{ github.actor }}
+        run: |
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d '{
+                 "username": "GitHub Actions",
+                 "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+                 "embeds": [{
+                   "title": "New release of ${REPO}: '${TAG}'",
+                   "url": "https://github.com/'${REPO}'/releases/tag/'${TAG}'",
+                   "description": "${REPO} ${TAG} just released!",
+                   "color": 5814783
+                 }]
+               }' \
+               $DISCORD_WEBHOOK_URL
