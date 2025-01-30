@@ -22,9 +22,9 @@ jobs:
                  "username": "GitHub Actions",
                  "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
                  "embeds": [{
-                   "title": "New release of ${REPO}: '${TAG}'",
-                   "url": "https://github.com/'${REPO}'/releases/tag/'${TAG}'",
-                   "description": "${REPO} ${TAG} just released!",
+                   "title": "New release of ${{ github.repository }}: '${{ github.ref_name }}'",
+                   "url": "https://github.com/'${{ github.repository }}'/releases/tag/'${{ github.ref_name }}'",
+                   "description": "${{ github.repository }} ${{ github.ref_name }} just released!",
                    "color": 5814783
                  }]
                }' \
