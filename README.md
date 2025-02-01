@@ -16,14 +16,6 @@ Github template for new libraries
 ![GitHub Release](https://img.shields.io/github/v/release/gouef/github-lib-template?label=Beta&include_prereleases&filter=*beta*&logoSize=diago)
 
 
-## Join our Discord Community! 🎉
-
-[![Discord](https://img.shields.io/discord/1334331501462163509?style=for-the-badge&logo=discord&logoColor=white&logoSize=auto&label=Community%20discord&labelColor=blue&link=https%3A%2F%2Fdiscord.gg%2FwjGqeWFnqK
-)](https://discord.gg/wjGqeWFnqK)
-
-Click above to join our community on Discord!
-
-
 ## Introduction
 
 This is template repository for new libraries
@@ -48,3 +40,12 @@ Read [Contributing](CONTRIBUTING.md)
 </span>
 </div>
 
+
+
+
+## Join our Discord Community! 🎉
+
+[![Discord](https://img.shields.io/discord/1334331501462163509?style=for-the-badge&logo=discord&logoColor=white&logoSize=auto&label=Community%20discord&labelColor=blue&link=https%3A%2F%2Fdiscord.gg%2FwjGqeWFnqK
+)](https://discord.gg/wjGqeWFnqK)
+
+Click above to join our community on Discord!
