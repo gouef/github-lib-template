@@ -40,9 +40,6 @@ Read [Contributing](CONTRIBUTING.md)
 </span>
 </div>
 
-
-
-
 ## Join our Discord Community! 🎉
 
 [![Discord](https://img.shields.io/discord/1334331501462163509?style=for-the-badge&logo=discord&logoColor=white&logoSize=auto&label=Community%20discord&labelColor=blue&link=https%3A%2F%2Fdiscord.gg%2FwjGqeWFnqK
