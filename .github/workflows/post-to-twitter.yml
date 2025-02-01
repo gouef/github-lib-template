@@ -6,12 +6,19 @@ on:
       - Create Release
     types:
       - completed
+    tags:
+      - 'v*'
 
 jobs:
   tweet:
     runs-on: ubuntu-latest
     steps:
-
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: pip install tweepy
       - name: Send tweet
         env:
           TWITTER_CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_API_KEY }}

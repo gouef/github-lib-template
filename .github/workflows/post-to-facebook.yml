@@ -6,14 +6,18 @@ on:
       - Create Release
     types:
       - completed
+    tags:
+      - 'v*'
 
 jobs:
   post-to-facebook:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -30,5 +34,5 @@ jobs:
         run: |
           curl -i -X POST \
           "https://graph.facebook.com/v22.0/${{ env.FACEBOOK_PAGE_ID }}/feed" \
-          -F "message=🎉 ${{ github.repository }} ${{ github.ref_name }} just released! 🎉 ${{ github.event.release.body }}" \
+          -F "message=🎉 ${{ github.repository }} ${{ github.ref_name }} just released! 🎉 (https://github.com/'${{ github.repository }}'/releases/tag/'${{ github.ref_name }}') ${{ github.event.release.body }}" \
           -F "access_token=${{ env.FACEBOOK_ACCESS_TOKEN }}"
