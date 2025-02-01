@@ -46,5 +46,5 @@ jobs:
         run: |
           curl -i -X POST \
           "https://graph.facebook.com/v22.0/${{ env.FACEBOOK_PAGE_ID }}/feed" \
-          -F "message=🎉 ${{ github.repository }} ${{ env.TAG_NAME }} just released! 🎉 (https://github.com/${{ github.repository }}/releases/tag/${{ env.TAG_NAME }})" \
+          -F "message=🚀 ${{ github.repository }} ${{ env.TAG_NAME }} just released! 🎉 (https://github.com/${{ github.repository }}/releases/tag/${{ env.TAG_NAME }})" \
           -F "access_token=${{ env.FACEBOOK_ACCESS_TOKEN }}"
