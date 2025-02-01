@@ -1,9 +1,11 @@
 name: Post to Facebook on Release
 
 on:
-  push:
-  release:
-    types: [published]
+  workflow_run:
+    workflows:
+      - Create Release
+    types:
+      - completed
 
 jobs:
   post-to-facebook:
@@ -27,6 +29,6 @@ jobs:
           FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
         run: |
           curl -i -X POST \
-          "https://graph.facebook.com/v13.0/${{ env.FACEBOOK_PAGE_ID }}/feed" \
+          "https://graph.facebook.com/v22.0/${{ env.FACEBOOK_PAGE_ID }}/feed" \
           -F "message=🎉 ${{ github.repository }} ${{ github.ref_name }} just released! 🎉 ${{ github.event.release.body }}" \
           -F "access_token=${{ env.FACEBOOK_ACCESS_TOKEN }}"
