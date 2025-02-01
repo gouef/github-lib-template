@@ -12,11 +12,16 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_PR }}
         run: |
+          if [ "${{ github.event.pull_request.merged }}" == "true" ]; then
+            STATUS="🎉 Pull Request Merged"
+          else
+            STATUS="${{ github.event.action == 'opened' && '🔀 **New Pull Request**' || '❌ **Pull Request Closed**' }}"
+          fi
           TITLE="${{ github.event.pull_request.title }}"
           URL="${{ github.event.pull_request.html_url }}"
           AUTHOR="${{ github.actor }}"
           
           curl -H "Content-Type: application/json" \
             -X POST \
-            -d "{\"username\": \"GitHub Bot\", \"content\": \"🔀 **New Pull Request** by **${AUTHOR}**: **${TITLE}**\n🔗 ${URL}\"}" \
+            -d "{\"username\": \"GitHub Bot\", \"content\": \"${STATUS} by **${AUTHOR}**: **${TITLE}**\n🔗 ${URL}\"}" \
             "$DISCORD_WEBHOOK"

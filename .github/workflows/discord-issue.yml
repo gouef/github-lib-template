@@ -12,6 +12,7 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK_URL_ISSUE }}
         run: |
+          STATUS="${{ github.event.action == 'opened' && '📢 **New Issue**' || '✅ **Issue Closed**' }}"
           ISSUE_TYPE="${{ github.event_name }}"
           ISSUE_TITLE="${{ github.event.issue.title || github.event.pull_request.title }}"
           ISSUE_URL="${{ github.event.issue.html_url || github.event.pull_request.html_url }}"
@@ -19,5 +20,5 @@ jobs:
           
           curl -H "Content-Type: application/json" \
             -X POST \
-            -d "{\"username\": \"GitHub Bot\", \"content\": \"📢 **${ISSUE_TYPE}** created by **${AUTHOR}**: **${ISSUE_TITLE}**\n🔗 ${ISSUE_URL}\"}" \
+            -d "{\"username\": \"GitHub Bot\", \"content\": \"${STATUS} created by **${AUTHOR}**: **${ISSUE_TITLE}**\n🔗 ${ISSUE_URL}\"}" \
             "$DISCORD_WEBHOOK"
