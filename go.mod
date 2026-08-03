@@ -1,4 +1,4 @@
 module github.com/gouef/github-lib-template
 
-go 1.24.2
+go 1.26.5
 
