@@ -38,9 +38,12 @@ Read [Contributing](CONTRIBUTING.md)
 ## Contributors
 
 <div>
-  <a href="https://github.com/gouef/github-lib-template/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=gouef/github-lib-template" />
-  </a>
+<span>
+  <a href="https://github.com/JanGalek"><img src="https://raw.githubusercontent.com/gouef/github-lib-template/refs/heads/contributors-svg/.github/contributors/JanGalek.svg" alt="JanGalek" /></a>
+</span>
+<span>
+  <a href="https://github.com/actions-user"><img src="https://raw.githubusercontent.com/gouef/github-lib-template/refs/heads/contributors-svg/.github/contributors/actions-user.svg" alt="actions-user" /></a>
+</span>
 </div>
 
 ## Join our Discord Community! 🎉
